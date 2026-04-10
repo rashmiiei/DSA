@@ -6,6 +6,9 @@ void add_end();
 void add_begin();
 void print_list();
 int length_list();
+void delete_first();
+void delete_end();
+void delete_any();
 
 
 //structure
@@ -88,6 +91,75 @@ void add_begin()
     
 }
 
+//function to delete the first node
+void delete_first()
+{
+	struct node *temp;
+	
+	//edge case in case the list is empty
+	if(root == NULL)
+	{
+	    printf("list is empty \n");
+	}
+	//condition in case if there is a first node present
+	else
+	{
+		temp = root;
+		root = temp->link;
+		temp->link = NULL;
+		free(temp);
+	}
+}
+
+//function to delelet the last node
+void delete_end()
+{
+	struct node *p, *q;
+	p = root;
+	
+	//edge case : if no nodes are present
+	if(root == NULL)
+	{
+	    printf("list is empty \n");
+	}
+	//edge case: if only one node is present
+	else if(root->link == NULL)
+	{
+	    free(root);
+	    root = NULL;
+	}
+	//if more than one nodes are present
+	else 
+	{
+	    while (p->link->link != NULL)
+	    {
+		    p = p->link;
+		}	    
+	    q = p->link;
+	    p->link = NULL;
+	    free(q);
+	}
+}
+
+//Function to delete any node
+void delete_any()
+{
+	int i=1, loc;
+	printf("enter the location to delete : ");
+	scanf("%d", &loc);
+	
+	struct node *p, *q;
+	p = root;
+	while(i<loc-1)
+	{
+		p = p->link;
+		i++;
+	}
+	q = p->link;
+	p->link = q->link;
+	q->link = NULL;
+	free(q);
+}
 void print_list()
 {
     struct node *temp;
