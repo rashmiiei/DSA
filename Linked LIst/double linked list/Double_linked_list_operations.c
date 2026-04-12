@@ -110,7 +110,7 @@ void add_at_specific()
         temp->right = NULL;
         
         p = root;
-        while(i < loc)
+        while(i < loc-1)
         {
             p = p->right;
             i++;
