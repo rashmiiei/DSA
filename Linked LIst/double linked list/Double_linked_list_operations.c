@@ -7,6 +7,7 @@ void display_list();
 void append();
 void add_at_specific();
 void add_at_begin();
+void delete_first();
 
 //Node structure
 struct node
@@ -115,7 +116,7 @@ void add_at_specific()
             p = p->right;
             i++;
         }
-        //RIght side connections needs to be made first or else we will lose the node
+        //Right side connections needs to be made first or else we will lose the node
         temp->right = p->right;
         p->right->left = temp;
         
@@ -146,6 +147,31 @@ void add_at_begin()
     }
 }
 
+void delete_first()
+{
+    struct node *temp;
+    int len;
+    len = length_list();
+    
+    temp = root;
+    //if there are no nodes present
+    if(temp == NULL)
+    {
+        printf("list is empty \n");
+    }
+    //if there's only one node present in the list
+    else if(len == 1)
+    {
+        root = NULL;
+    }
+    //if there are more than one node present
+    else
+    {
+        root = temp->right;
+        temp->right = NULL;
+        root->left = NULL;
+    }
+}
 
 int main() 
 {
@@ -180,6 +206,9 @@ int main()
                  
             case 5 : add_at_begin();
                      break; 
+
+            case 6 : delete_first();
+                     break;
                  
                  
             default : printf("Invalid choice. \n"); 
