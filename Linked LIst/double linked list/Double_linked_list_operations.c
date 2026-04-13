@@ -8,6 +8,7 @@ void append();
 void add_at_specific();
 void add_at_begin();
 void delete_first();
+void delete_last();
 
 //Node structure
 struct node
@@ -173,6 +174,30 @@ void delete_first()
     }
 }
 
+void delete_last()
+{
+    struct node *temp, *prev;
+    int len;
+    len = length_list();
+    temp = root;
+    //only one node is present
+    if(len == 1)
+    {
+        root = NULL;
+    }
+    //more than one node present
+    else
+    {
+        while(temp->right != NULL)
+        {
+            temp = temp->right;
+        }
+        prev = temp->left;
+        prev->right = NULL;
+        temp->left = NULL;
+    }
+}
+
 int main() 
 {
     int choice, len;
@@ -210,7 +235,9 @@ int main()
             case 6 : delete_first();
                      break;
                  
-                 
+            case 7 : delete_last();
+                     break;
+            
             default : printf("Invalid choice. \n"); 
         }
     }
