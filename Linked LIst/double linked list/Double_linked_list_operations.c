@@ -9,6 +9,7 @@ void add_at_specific();
 void add_at_begin();
 void delete_first();
 void delete_last();
+void delete_specific();
 
 //Node structure
 struct node
@@ -198,6 +199,52 @@ void delete_last()
     }
 }
 
+void delete_specific()
+{
+    int loc, i;
+    struct node *temp, *next;
+    
+    printf("enter the location : ");
+    scanf("%d", &loc);
+    //when there is only one node
+    if(loc == 1)
+    {
+        temp = root;
+        
+        //single node case
+        if(temp->right == NULL)
+        {
+            root = NULL;
+        }
+        //More than one nodes
+        else
+        {
+            root = temp->right;
+            root->left = NULL;
+            temp->right = NULL;
+        }
+        
+    }
+    //traverse to loc-1
+    temp = root;
+    while(i < loc-1 && temp->right != NULL)
+    {
+        temp = temp->right;
+        i++;
+    }
+    
+    next = temp->right;
+    if(next->right == NULL)
+    {
+        temp->right = NULL;
+    }
+    else
+    {
+        temp->right = next->right;
+        next->right->left = temp;
+    }
+}
+
 int main() 
 {
     int choice, len;
@@ -209,6 +256,9 @@ int main()
         printf("3. append the node  \n");
         printf("4. add after a specific node \n");
         printf("5. add at the beginning \n");
+        printf("6. delete the first node \n");
+        printf("7. delete the last node \n");
+		printf("8. delete node at location \n");
         
         printf("Enter a choice : ");
         scanf("%d", &choice);
@@ -236,6 +286,9 @@ int main()
                      break;
                  
             case 7 : delete_last();
+                     break;
+
+            case 8 : delete_specific();
                      break;
             
             default : printf("Invalid choice. \n"); 
