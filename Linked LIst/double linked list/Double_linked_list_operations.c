@@ -259,6 +259,7 @@ int main()
         printf("6. delete the first node \n");
         printf("7. delete the last node \n");
 		printf("8. delete node at location \n");
+		printf("9. exit \n");
         
         printf("Enter a choice : ");
         scanf("%d", &choice);
@@ -290,6 +291,8 @@ int main()
 
             case 8 : delete_specific();
                      break;
+
+			case 9 : exit(0);
             
             default : printf("Invalid choice. \n"); 
         }
