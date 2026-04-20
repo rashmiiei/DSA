@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//function signatures
+//function signature
 int length_list();
 void display_list();
 void append();
@@ -57,6 +57,7 @@ void display_list()
     }
 }
 
+//Function definition to append a node
 void append()
 {
     struct node *temp;
@@ -89,6 +90,7 @@ void append()
     }
 }
 
+//Function definition to add a node at a specific location
 void add_at_specific()
 {
     struct node *temp, *p;
@@ -128,6 +130,7 @@ void add_at_specific()
     }
 }
 
+//Function definition to add a node at the beginning
 void add_at_begin()
 {
     struct node *temp;
@@ -149,6 +152,7 @@ void add_at_begin()
     }
 }
 
+//Function definition to delete the first node
 void delete_first()
 {
     struct node *temp;
@@ -175,6 +179,7 @@ void delete_first()
     }
 }
 
+//Function definition to delete the last node
 void delete_last()
 {
     struct node *temp, *prev;
@@ -199,6 +204,7 @@ void delete_last()
     }
 }
 
+//Function definition to delete a specific node
 void delete_specific()
 {
     int loc, i;
@@ -274,8 +280,7 @@ int main()
                      break;
                  
             case 3 : append();
-                     break;
-             
+                     break;             
              
             case 4 : add_at_specific();
                      break;
