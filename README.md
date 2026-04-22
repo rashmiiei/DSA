@@ -4,4 +4,4 @@ I am using this repository to strengthen my problem-solving skills and build a s
 
 Language : C
 
-This is a learning repository, so the focus is on clarity and improvement rather than perfection.
+This is a learning repository, so the focus is on clarity and improvement rather than perfection. I will be focusing more on Linked list, Stacks, Queues and Trees.
