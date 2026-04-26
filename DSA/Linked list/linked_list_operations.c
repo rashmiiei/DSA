@@ -11,7 +11,7 @@ void delete_end();
 void delete_any();
 
 
-//structure
+//node structure
 struct node
 {
     int data;
