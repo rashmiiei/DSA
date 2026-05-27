@@ -19,6 +19,7 @@ struct node
     struct node *right;
 };
 
+//globally declaring the root pointer
 struct node *root = NULL;
 
 //Function definition to calculate the length of the list
