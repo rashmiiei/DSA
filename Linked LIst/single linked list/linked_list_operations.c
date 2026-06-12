@@ -68,7 +68,6 @@ void add_after()
 		temp->link = p->link;
 		p->link = temp;
 	}	
-	
 }
 
 void add_begin()
